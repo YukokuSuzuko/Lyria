@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "inputs": {
+    "video": "synthetic_mv.mp4",
+    "ktv": "synthetic_ktv.ass",
+    "translation": "synthetic_bilingual.txt"
+  },
+  "settings": {
+    "engine": "rapidocr",
+    "language": "jpn+eng",
+    "sample_fps": 3,
+    "api_enabled": false
+  }
+}

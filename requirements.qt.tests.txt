@@ -1,0 +1,3 @@
+# Test runner only; not part of the application payload.
+# Installed development runner version used for independent Qt test collection.
+pytest==9.2.0

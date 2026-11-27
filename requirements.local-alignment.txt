@@ -1,0 +1,25 @@
+# Separate NEW Python 3.12 venv only. Do not install into the Qt editor environment.
+# Install torch separately from the official CPU or cu128 index, e.g.:
+# python -m pip install --only-binary=:all: --index-url https://download.pytorch.org/whl/cu128 torch==2.9.1
+# Explicit CPU alternative: index https://download.pytorch.org/whl/cpu
+# Then install these pinned top-level dependencies from https://pypi.org/simple.
+# A successful one-click install records actual resolved transitive versions.
+# Separation also requires exactly ONE device-specific ONNX Runtime package:
+# CUDA runtime: python -m pip install --only-binary=:all: onnxruntime-gpu==1.23.2
+# CPU runtime:  python -m pip install --only-binary=:all: onnxruntime==1.23.2
+# The installer selects one for the explicit device; do not co-install them or
+# install either into the Qt/DirectML environment. A GPU failure is not consent
+# to switch devices. These alternatives are comments, not two pip requirements.
+# Independent UVR DSP uses these dependencies; no audio-separator or onnx
+# package is required. SoundFile is supplied by the pinned librosa dependency.
+# Model weights are acquired separately after confirmation, never bundled here.
+transformers==5.22.2
+numpy==2.2.6
+librosa==0.11.0
+jinja2==3.1.6
+nagisa==0.3.1
+soynlp==0.0.493
+
+
+# Japanese readings for NextFire (GPL-3.0-or-later)
+pykakasi==2.3.0

@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "target": "windows-x86_64-python3.12-pyinstaller-onedir",
+  "ffprobe_required": false,
+  "ffprobe_reason": "No production ffprobe invocation; decoding and metadata use PyAV, ASS rendering uses ffmpeg.exe.",
+  "runtime_distributions": [
+    "PySide6",
+    "regex",
+    "av",
+    "numpy",
+    "opencv-python",
+    "Pillow",
+    "pytesseract",
+    "rapidocr",
+    "onnxruntime-directml"
+  ],
+  "required_resources": [
+    "resources/ffmpeg.exe",
+    "resources/tesseract/tesseract.exe",
+    "resources/tesseract/tessdata/eng.traineddata",
+    "resources/tesseract/tessdata/chi_sim.traineddata",
+    "resources/tesseract/tessdata/jpn.traineddata",
+    "resources/tesseract/tessdata/jpn_vert.traineddata",
+    "resources/models/ch_PP-OCRv4_det_infer.onnx",
+    "resources/models/ch_PP-OCRv4_rec_infer.onnx",
+    "resources/models/ch_ppocr_mobile_v2.0_cls_infer.onnx",
+    "resources/models/japan_PP-OCRv4_rec_infer.onnx",
+    "resources/models/PP-OCRv6_det_small.onnx",
+    "resources/models/PP-OCRv6_rec_medium.onnx",
+    "resources/fonts/NotoSansCJKjp-Regular.otf"
+  ],
+  "copied_trees": [
+    "resources",
+    "desktop_qt/qml",
+    "desktop_qt/assets"
+  ],
+  "external_trees": [
+    "examples",
+    "licenses"
+  ],
+  "external_files": [
+    "THIRD_PARTY.md",
+    "README_QT.md",
+    "docs/LOCAL_DIAGNOSTICS.md",
+    "docs/PORTABLE_RUNTIME_AUDIT.md",
+    "docs/RUNTIME_XZ_ADVISORY_20261104.md",
+    "docs/PHASE3_CANDIDATE_GUIDE.md",
+    "requirements.local-alignment.txt",
+    "docs/LOCAL_ALIGNMENT.md",
+    "docs/UVR_MODEL_ATTRIBUTION.md",
+    "docs/PHASE5_LOCAL_MODELS_20261112.md",
+    "docs/v0.22/DISTRIBUTION_STATUS.md",
+    "docs/v0.22/sudachi-license/metadata-sha256.json",
+    "docs/v0.22/sudachi-license/sudachidict_small-sudachidict_small-20260116.dist-info_licenses_LICENSE-2.0.txt",
+    "docs/v0.22/sudachi-license/sudachidict_small-sudachidict_small-20260116.dist-info_METADATA",
+    "docs/v0.22/sudachi-license/sudachipy-sudachipy-0.6.11.dist-info_METADATA",
+    "docs/v0.24/PORTABILITY.md"
+  ],
+  "required_source_files": [
+    "desktop_qt/qml/Main.qml",
+    "desktop_qt/qml/qmldir",
+    "desktop_qt/assets/icons/play.svg",
+    "examples/synthetic_mv.mp4",
+    "licenses/FFmpeg-LICENSE.txt",
+    "licenses/FFmpeg-README.txt"
+  ],
+  "native_artifacts": {
+    "application": [
+      "Lyria.exe"
+    ],
+    "python": [
+      "_internal/python312.dll"
+    ],
+    "pyav_extension": [
+      "_internal/av/_core*.pyd"
+    ],
+    "pyav_codec": [
+      "_internal/av.libs/avcodec*.dll"
+    ],
+    "pyav_format": [
+      "_internal/av.libs/avformat*.dll"
+    ],
+    "pyav_util": [
+      "_internal/av.libs/avutil*.dll"
+    ],
+    "pyav_scale": [
+      "_internal/av.libs/swscale*.dll"
+    ],
+    "pyav_resample": [
+      "_internal/av.libs/swresample*.dll"
+    ],
+    "onnx_extension": [
+      "_internal/onnxruntime/capi/onnxruntime_pybind11_state*.pyd"
+    ],
+    "directml": [
+      "_internal/onnxruntime/capi/DirectML.dll"
+    ],
+    "regex_extension": [
+      "_internal/regex/_regex*.pyd"
+    ],
+    "opencv_extension": [
+      "_internal/cv2/cv2*.pyd"
+    ],
+    "numpy_extension": [
+      "_internal/numpy/_core/_multiarray_umath*.pyd"
+    ],
+    "pillow_extension": [
+      "_internal/PIL/_imaging*.pyd"
+    ],
+    "qt_core_binding": [
+      "_internal/PySide6/QtCore.pyd"
+    ],
+    "qt_quick_binding": [
+      "_internal/PySide6/QtQuick.pyd"
+    ],
+    "qt_multimedia_binding": [
+      "_internal/PySide6/QtMultimedia.pyd"
+    ],
+    "qt_core": [
+      "_internal/PySide6/Qt6Core.dll"
+    ],
+    "qt_gui": [
+      "_internal/PySide6/Qt6Gui.dll"
+    ],
+    "qt_qml": [
+      "_internal/PySide6/Qt6Qml.dll"
+    ],
+    "qt_quick": [
+      "_internal/PySide6/Qt6Quick.dll"
+    ],
+    "qt_controls": [
+      "_internal/PySide6/Qt6QuickControls2.dll"
+    ],
+    "qt_multimedia": [
+      "_internal/PySide6/Qt6Multimedia.dll"
+    ],
+    "qt_platform": [
+      "_internal/PySide6/plugins/platforms/qwindows.dll"
+    ],
+    "qt_svg_icons": [
+      "_internal/PySide6/plugins/imageformats/qsvg.dll"
+    ],
+    "qt_audio_backend": [
+      "_internal/PySide6/plugins/multimedia/ffmpegmediaplugin.dll",
+      "_internal/PySide6/plugins/multimedia/windowsmediaplugin.dll"
+    ],
+    "qt_gui_binding": [
+      "_internal/PySide6/QtGui.pyd"
+    ],
+    "qt_qml_binding": [
+      "_internal/PySide6/QtQml.pyd"
+    ],
+    "qt_controls_binding": [
+      "_internal/PySide6/QtQuickControls2.pyd"
+    ],
+    "qt_widgets_binding": [
+      "_internal/PySide6/QtWidgets.pyd"
+    ],
+    "qt_svg_binding": [
+      "_internal/PySide6/QtSvg.pyd"
+    ],
+    "qt_templates": [
+      "_internal/PySide6/Qt6QuickTemplates2.dll"
+    ]
+  },
+  "qml_modules": [
+    "QtQml",
+    "QtQml/Models",
+    "QtQml/WorkerScript",
+    "QtQuick",
+    "QtQuick/Window",
+    "QtQuick/Layouts",
+    "QtQuick/Templates",
+    "QtQuick/Shapes",
+    "QtQuick/Controls",
+    "QtQuick/Controls/impl",
+    "QtQuick/Controls/Basic",
+    "QtQuick/Controls/Basic/impl",
+    "QtMultimedia"
+  ],
+  "required_package_data": [
+    "_internal/rapidocr/config.yaml",
+    "_internal/rapidocr/models/ppocr_keys_v1.txt"
+  ],
+  "unverified_release_gates": [
+    "Windows packaged OCR/interaction/audio/GPU/DPI acceptance",
+    "Actual shipped components' license and source-access review",
+    "Authorized external binary and model provenance"
+  ],
+  "required_build_files": [
+    "LyriaQt.spec",
+    "tools/pyinstaller_hooks/hook-PySide6.QtQml.py",
+    "tools/pyinstaller_hooks/hook-PySide6.QtGui.py",
+    "tools/pyinstaller_hooks/lyria_qml_policy.py"
+  ],
+  "excluded_qt_qml_roots": [
+    "QtCharts",
+    "QtDataVisualization",
+    "QtGraphs",
+    "QtQuick3D",
+    "QtQuick/Timeline",
+    "QtQuick/VirtualKeyboard"
+  ],
+  "excluded_qt_native_names": [
+    "Qt6Charts*.dll",
+    "Qt6DataVisualization*.dll",
+    "Qt6Graphs*.dll",
+    "Qt6Pdf*.dll",
+    "Qt6Quick3D*.dll",
+    "Qt6QuickTimeline*.dll",
+    "Qt6Test*.dll",
+    "Qt6VirtualKeyboard*.dll",
+    "QtCharts.pyd",
+    "QtDataVisualization.pyd",
+    "QtGraphs.pyd",
+    "QtGraphsWidgets.pyd",
+    "QtPdf*.pyd",
+    "QtQuick3D.pyd",
+    "QtTest.pyd",
+    "qpdf.dll",
+    "qtvirtualkeyboardplugin.dll",
+    "qmldbg_quick3dprofiler.dll"
+  ],
+  "internal_files": [
+    "lyricsync/local_alignment_worker.py",
+    "lyricsync/local_models.py",
+    "lyricsync/local_separation_worker.py",
+    "lyricsync/local_transcription_worker.py",
+    "lyricsync/nextfire_worker.py",
+    "lyricsync/japanese_readings.py",
+    "lyricsync/experimental_nextfire_alignment.py",
+    "lyricsync/dev9_long_audio.py",
+    "lyricsync/alignment_romaji.py",
+    "lyricsync/sudachi_readings.py",
+    "lyricsync/alignment_tokens.py",
+    "lyricsync/nextfire_tail_guard.py",
+    "lyricsync/shared_runtime.py",
+    "lyricsync/online_amd.py"
+  ],
+  "distribution_policy": "Historical research, user advice originals, private media and experiment receipts remain local; only explicit reviewed distribution documentation is required."
+}

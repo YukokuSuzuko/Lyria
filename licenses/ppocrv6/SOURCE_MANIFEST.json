@@ -1,0 +1,58 @@
+{
+  "reviewed_on": "2026-11-14",
+  "scope": "Only the two added OCR model artifacts. Not a release-wide license clearance. No new production Python dependency.",
+  "models": [
+    {
+      "filename": "PP-OCRv6_det_small.onnx",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv6/det/PP-OCRv6_det_small.onnx",
+      "source_revision": "v3.10.0",
+      "size": 9929594,
+      "sha256": "090f04abcd9d9a7498bc4ebf677e4cb9bdce1fe4197ddb7e529f1ef44e1ff94f",
+      "upstream_model_card": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_det_onnx",
+      "license": "Apache-2.0",
+      "format": "RapidAI converted ONNX; not assumed byte-identical to PaddlePaddle ONNX",
+      "modified_by_lyria": false
+    },
+    {
+      "filename": "PP-OCRv6_rec_medium.onnx",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv6/rec/PP-OCRv6_rec_medium.onnx",
+      "source_revision": "v3.10.0",
+      "size": 76629984,
+      "sha256": "eef444829dbbe18d7fea59a3f6eb75647518d2b3a9568d27c92e42940204894b",
+      "upstream_model_card": "https://huggingface.co/PaddlePaddle/PP-OCRv6_medium_rec_onnx",
+      "license": "Apache-2.0",
+      "format": "RapidAI converted ONNX; not assumed byte-identical to PaddlePaddle ONNX",
+      "modified_by_lyria": false
+    }
+  ],
+  "registry": {
+    "wheel": "rapidocr-3.10.0-py3-none-any.whl",
+    "wheel_source": "https://pypi.org/project/rapidocr/3.10.0/",
+    "wheel_sha256": "2fc34e26cd0f48514804a94f8832283039c7334076bff60768b1fed9ad068050",
+    "registry_member": "rapidocr/default_models.yaml",
+    "registry_sha256": "90e0159dead16c21adbf000014a46043c981ae097f041d92d8b19a52c2f2ed9a"
+  },
+  "notices": [
+    {
+      "file": "LICENSE-PaddleOCR.txt",
+      "source": "https://raw.githubusercontent.com/PaddlePaddle/PaddleOCR/main/LICENSE",
+      "sha256": "3840c5c0c61c294264d2dd77b8777be6ddd90121ef4e0e64abcd22edea581d6e"
+    },
+    {
+      "file": "MODEL_LICENSES-RapidOCR.md",
+      "source": "https://raw.githubusercontent.com/RapidAI/RapidOCR/main/python/MODEL_LICENSES.md",
+      "sha256": "7eb62bd5765467f8b6f1b610054b414c0e21cb9e32b1b70fb487b13363e6798a"
+    }
+  ],
+  "adapter": {
+    "production_runtime": "rapidocr 3.4.1 / onnxruntime-directml 1.23.0",
+    "input": "BGR uint8; NCHW float32 with C=3,H=48; width dynamic; /255 then (x-.5)/.5",
+    "decoder": "CTC with character dictionary embedded in pinned ONNX, no external dictionary/font download",
+    "dictionary": {
+      "sha256": "f7aa897ca828a4c7c9e2739c30f9161a33306d532f020bcdb91dcfb664a5507e",
+      "labels": 18710,
+      "output_classes": 18710
+    }
+  },
+  "restrictions": "Retain Apache-2.0, upstream attribution and relevant NOTICE; mark modifications if any. No endorsement; fonts/datasets/runtime licenses separate. Latest upstream notice broadens scope beyond the bundled-only notice in the 3.10.0 wheel, so both provenance records were reviewed."
+}

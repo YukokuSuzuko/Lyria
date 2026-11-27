@@ -1,0 +1,24 @@
+Additional Permission under GNU GPL version 3 section 7 (Runtime Integration Exception)
+
+Copyright (C) 2026 Lyria STUDIO Contributors
+
+As an additional permission under Section 7 of the GNU General Public License
+version 3 ("GPL-3.0"), the copyright holders of Lyria STUDIO grant you permission
+to combine, invoke (whether via dynamic linking, plugin loading, or isolated
+worker subprocesses), and propagate Lyria STUDIO's own original source files and
+compiled executables with standard Windows operating-system interfaces and
+hardware-acceleration / media runtime libraries (including, without limitation,
+Microsoft DirectML / `DirectML.dll`, DirectX / Media Foundation, NVIDIA CUDA /
+cuDNN, and AMD ROCm runtime components), even where such runtime components are
+distributed under non-GPL proprietary or permissive license terms, provided that:
+
+1. You retain the complete GNU General Public License version 3 (`LICENSE`),
+   this notice (`ADDITIONAL_PERMISSION_RUNTIME.txt`), and all applicable
+   third-party license texts and notices in any source or binary distribution.
+2. This additional permission applies solely to the copyrightable work authored
+   for Lyria STUDIO itself. It does NOT modify, waive, or supersede the license
+   obligations of any third-party GPL, LGPL, Apache, BSD, MIT, or proprietary
+   components bundled separately or alongside Lyria STUDIO (such as FFmpeg,
+   libx264, libx265, PyAV, Qt/PySide6, DirectML, RapidOCR, or Tesseract).
+3. You may remove this additional permission if you convey a modified version of
+   Lyria STUDIO without relying on those external runtime components.

@@ -1,0 +1,16 @@
+design/app-icon/* -text
+
+# Preserve upstream notice bytes and their provenance hashes on Windows.
+licenses/ppocrv6/LICENSE-PaddleOCR.txt -text
+licenses/ppocrv6/MODEL_LICENSES-RapidOCR.md -text
+
+# Preserve v0.21 requirement snapshots and upstream license provenance bytes.
+docs/v0.21/requirements/* -text
+docs/v0.21/sudachi-evaluation/licenses/** -text
+
+# Preserve version-locked upstream license bytes on Windows checkouts.
+licenses/rapidocr-3.4.1-LICENSE -text
+licenses/flatbuffers-25.12.19-LICENSE -text
+
+# Preserve fixed Sudachi notice and provenance bytes across Windows checkouts.
+licenses/sudachi/** -text

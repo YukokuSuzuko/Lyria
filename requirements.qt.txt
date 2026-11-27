@@ -1,0 +1,5 @@
+# Windows Qt desktop dependencies; retained DirectML backend pins.
+# This is not a claim of a built/validated Windows release.
+-r requirements.lock.txt
+PySide6==6.8.3
+regex==2026.9.29

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
+  <defs>
+    <!-- 右上柔丁香粉紫 → 左下深罗兰紫对角渐变 -->
+    <linearGradient id="lyriaBg" x1="456" y1="42" x2="56" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#B693FF"/>
+      <stop offset="46%" stop-color="#7E59FA"/>
+      <stop offset="100%" stop-color="#5631F2"/>
+    </linearGradient>
+
+    <!-- 柔和微立体弥散投影 -->
+    <filter id="softShadow" x="-12%" y="-10%" width="124%" height="128%" filterUnits="objectBoundingBox">
+      <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#33149E" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+
+  <!-- 圆角方框底板 -->
+  <rect x="0" y="0" width="512" height="512" rx="116" fill="url(#lyriaBg)"/>
+
+  <!-- 视觉重心居中校准后的核心图形组（删去左下碎星，拉开底部胶囊透明度梯度） -->
+  <g filter="url(#softShadow)">
+    <!-- 1. 左上主四角星（100% 纯白，纤巧收腰弧度） -->
+    <path d="M192 86
+             C196 144, 224 172, 282 176
+             C224 180, 196 208, 192 266
+             C188 208, 160 180, 102 176
+             C160 172, 188 144, 192 86Z"
+          fill="#FFFFFF" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- 2. 右上伴星（92% 柔白） -->
+    <path d="M278 104
+             C280 121, 289 130, 306 132
+             C289 134, 280 143, 278 160
+             C276 143, 267 134, 250 132
+             C267 130, 280 121, 278 104Z"
+          fill="#FFFFFF" fill-opacity="0.92" stroke="#FFFFFF" stroke-opacity="0.92" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- 3. 第一条歌词轨胶囊（98% 亮白，紧贴主星右下缺口） -->
+    <rect x="230" y="218" width="184" height="50" rx="25" fill="#FFFFFF" fill-opacity="0.98"/>
+
+    <!-- 4. 第二条歌词轨胶囊（84% 浅丁香白） -->
+    <rect x="118" y="292" width="286" height="50" rx="25" fill="#F6F2FF" fill-opacity="0.84"/>
+
+    <!-- 5. 第三条歌词轨胶囊（68% 雾丁香白） -->
+    <rect x="114" y="366" width="246" height="50" rx="25" fill="#EFE8FF" fill-opacity="0.68"/>
+  </g>
+</svg>

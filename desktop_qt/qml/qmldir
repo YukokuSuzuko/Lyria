@@ -1,0 +1,4 @@
+singleton Theme 1.0 Theme.qml
+ThemeProgressBar 1.0 ThemeProgressBar.qml
+ModelDownloadPage 1.0 ModelDownloadPage.qml
+OnboardingOverlay 1.0 OnboardingOverlay.qml

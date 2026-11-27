@@ -1,0 +1,90 @@
+{
+  "fixture": true,
+  "source": "vocal",
+  "project": {
+    "version": 2,
+    "inputs": {},
+    "settings": {
+      "engine": "tesseract",
+      "language": "jpn+eng",
+      "sample_fps": 3.0,
+      "roi": null,
+      "txt_groups": false,
+      "visibility": 0.62,
+      "max_gap": 0.45,
+      "api_enabled": false,
+      "api_model": "deepseek-flash",
+      "api_max_calls": 50,
+      "api_retries": 3
+    },
+    "video": {},
+    "lyrics": [],
+    "translations": [],
+    "visuals": [],
+    "mappings": [
+      {
+        "id": "vocal-fixture-01",
+        "translation_ids": [],
+        "lyric_ids": [],
+        "visual_ids": [],
+        "start": 1.0,
+        "end": 2.0,
+        "confidence": 0.9,
+        "reasons": [],
+        "locked": false,
+        "confirmed": false,
+        "ignored": false,
+        "method": "local",
+        "text_segments": [],
+        "text_override": "测试歌词：第一句",
+        "human_edited": false,
+        "lineage_ids": []
+      },
+      {
+        "id": "vocal-fixture-02",
+        "translation_ids": [],
+        "lyric_ids": [],
+        "visual_ids": [],
+        "start": 3.0,
+        "end": 4.0,
+        "confidence": 0.8,
+        "reasons": [],
+        "locked": false,
+        "confirmed": false,
+        "ignored": false,
+        "method": "local",
+        "text_segments": [],
+        "text_override": "重复副歌测试",
+        "human_edited": false,
+        "lineage_ids": []
+      },
+      {
+        "id": "vocal-fixture-03",
+        "translation_ids": [],
+        "lyric_ids": [],
+        "visual_ids": [],
+        "start": 5.0,
+        "end": 6.0,
+        "confidence": 0.7,
+        "reasons": [],
+        "locked": false,
+        "confirmed": false,
+        "ignored": false,
+        "method": "local",
+        "text_segments": [],
+        "text_override": "重复副歌测试",
+        "human_edited": false,
+        "lineage_ids": []
+      }
+    ],
+    "warnings": [],
+    "api_records": [],
+    "stage": "new",
+    "timebase": {
+      "unit": "seconds",
+      "origin": "media-relative",
+      "interval": "half-open",
+      "frame_coordinates": "one-based-decoded-pts"
+    }
+  }
+}
