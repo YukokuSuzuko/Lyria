@@ -55,7 +55,7 @@ class ApplicationIconTests(unittest.TestCase):
         entry = (ROOT / "app_qt.py").read_text(encoding="utf-8")
         ast.parse(entry)
         self.assertIn("setup_application_icon(app)", entry)
-        spec = (ROOT / "LyriaQt.spec").read_text(encoding="utf-8")
+        spec = (ROOT / "packaging/LyriaQt.spec").read_text(encoding="utf-8")
         tree = ast.parse(spec)
         exe = next(n for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "EXE")
         icon_arg = next(k.value for k in exe.keywords if k.arg == "icon")

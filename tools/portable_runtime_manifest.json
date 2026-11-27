@@ -39,13 +39,13 @@
     "licenses"
   ],
   "external_files": [
-    "THIRD_PARTY.md",
-    "README_QT.md",
+    "docs/THIRD_PARTY.md",
+    "docs/DEVELOPMENT.md",
     "docs/LOCAL_DIAGNOSTICS.md",
     "docs/PORTABLE_RUNTIME_AUDIT.md",
     "docs/RUNTIME_XZ_ADVISORY_20261104.md",
     "docs/PHASE3_CANDIDATE_GUIDE.md",
-    "requirements.local-alignment.txt",
+    "packaging/requirements.local-alignment.txt",
     "docs/LOCAL_ALIGNMENT.md",
     "docs/UVR_MODEL_ATTRIBUTION.md",
     "docs/PHASE5_LOCAL_MODELS_20261112.md",
@@ -188,7 +188,7 @@
     "Authorized external binary and model provenance"
   ],
   "required_build_files": [
-    "LyriaQt.spec",
+    "packaging/LyriaQt.spec",
     "tools/pyinstaller_hooks/hook-PySide6.QtQml.py",
     "tools/pyinstaller_hooks/hook-PySide6.QtGui.py",
     "tools/pyinstaller_hooks/lyria_qml_policy.py"

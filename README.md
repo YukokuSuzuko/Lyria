@@ -50,7 +50,7 @@
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.qt.txt -r requirements.qt.tests.txt
+python -m pip install -r requirements.txt
 
 # 启动桌面端界面
 python app_qt.py
@@ -60,22 +60,23 @@ $env:QT_QPA_PLATFORM = "offscreen"
 python -m pytest
 ```
 
-完整 Windows 独立安装包构建需额外准备本地外部运行资源目录（`resources/`，含 FFmpeg、RapidOCR 模型、Tesseract 及 DirectML 加速组件），构建约束见 [Windows 构建说明](docs/WINDOWS_BUILD_NOTES.md) 与 [构建与开发补充说明](README_QT.md)。
+完整 Windows 独立安装包构建需额外准备本地外部运行资源目录（`resources/`，含 FFmpeg、RapidOCR 模型、Tesseract 及 DirectML 加速组件），构建约束见 [Windows 构建说明](docs/WINDOWS_BUILD_NOTES.md) 与 [构建与开发补充说明](docs/DEVELOPMENT.md)。
 
 ## 目录结构
 
-- `app_qt.py`：Qt Quick 桌面端入口（`app.py` 为早期基线入口）
+- `app_qt.py`：Qt Quick 桌面端主程序入口
 - `desktop_qt/`：Qt / QML 界面组件、控制器 `Bridge`、对话框、样式管理与字体预览
 - `lyricsync/`：字幕数据模型、工程读写、导出器、画面 OCR 与音频对齐逻辑
 - `design/`：应用图标与界面 SVG 图标资源
 - `examples/`：合成演示字幕与工程样例
 - `tests/`：后端与桌面界面自动化测试
+- `packaging/`：Windows 打包脚本、Spec 配置与细分依赖锁定清单
 - `tools/`：构建检查、隔离测试桌面与环境辅助脚本
 - `docs/`：架构与第三方二进制对照说明文档
-- `licenses/`、[THIRD_PARTY.md](THIRD_PARTY.md)：第三方依赖归属与许可证存档
+- `licenses/`、[第三方依赖说明](docs/THIRD_PARTY.md)：第三方依赖归属与许可证存档
 
 ## 许可证与第三方声明
 
-- 本仓库自有源代码基于 [GNU General Public License v3.0 (GPL-3.0)](LICENSE) 发布，并附有针对系统及硬件加速运行库的 [GPL-3.0 第 7 条附加许可声明](ADDITIONAL_PERMISSION_RUNTIME.txt)。
-- 源码依赖、字体使用边界与外部模型归属说明见 [THIRD_PARTY.md](THIRD_PARTY.md) 及 [`licenses/`](licenses/) 目录。
+- 本仓库自有源代码基于 [GNU General Public License v3.0 (GPL-3.0)](LICENSE) 发布，并附有针对系统及硬件加速运行库的 [GPL-3.0 第 7 条附加许可声明](licenses/ADDITIONAL_PERMISSION_RUNTIME.txt)。
+- 源码依赖、字体使用边界与外部模型归属说明见 [THIRD_PARTY.md](docs/THIRD_PARTY.md) 及 [`licenses/`](licenses/) 目录。
 - Windows 安装包内所含第三方二进制组件（Qt / PySide6 6.8.3、PyAV 16.0.1 及内置 FFmpeg 8.0 / x264 / x265、独立 FFmpeg CLI 9.0.2、DirectML 1.15.4 等）的版本记录、适用许可证及同页伴随上游源码包说明见 [二进制组件与源码对照清单](docs/THIRD_PARTY_BINARIES.md)。

@@ -194,7 +194,10 @@ def normalize(name):
 def dependency_inventory(root, report, get_distribution=metadata.distribution):
     """Installed runtime dependency closure, exact metadata/notices, no license verdict."""
     from packaging.requirements import Requirement
-    pins = pins_from_file(Path(root) / 'requirements.qt.txt')
+    qt_req = Path(root) / 'packaging' / 'requirements.qt.txt'
+    if not qt_req.is_file():
+        qt_req = Path(root) / 'requirements.qt.txt'
+    pins = pins_from_file(qt_req)
     for name, expected in pins.items():
         try:
             actual = get_distribution(name).version

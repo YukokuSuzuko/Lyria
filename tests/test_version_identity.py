@@ -19,10 +19,10 @@ class VersionIdentityTests(unittest.TestCase):
         self.assertEqual(result.stdout.strip(),'Lyria '+__display_version__)
 
     def test_package_default_and_windows_resource_use_release_version(self):
-        script=(ROOT/'build_windows_qt.ps1').read_text(encoding='utf8')
+        script=(ROOT/'packaging/build_windows_qt.ps1').read_text(encoding='utf8')
         self.assertIn('Lyria_'+__version__+'_Windows_x64_test',script)
         self.assertIn('Refusing to overwrite an existing portable package',script)
-        spec=(ROOT/'LyriaQt.spec').read_text(encoding='utf8')
+        spec=(ROOT/'packaging/LyriaQt.spec').read_text(encoding='utf8')
         self.assertIn('from lyricsync import __version__',spec)
         self.assertIn("StringStruct('FileVersion', __display_version__)",spec)
         self.assertIn("StringStruct('ProductVersion', __display_version__)",spec)

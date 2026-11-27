@@ -27,6 +27,7 @@ MODEL_WORKERS = {
     'lyricsync/alignment_romaji.py', 'lyricsync/sudachi_readings.py',
     'lyricsync/alignment_tokens.py', 'lyricsync/nextfire_tail_guard.py',
     'lyricsync/shared_runtime.py',
+    'lyricsync/online_amd.py',
 }
 MODEL_DOCS = {
     'docs/LOCAL_ALIGNMENT.md', 'docs/UVR_MODEL_ATTRIBUTION.md',
@@ -162,7 +163,7 @@ class PortableResourceGuardTests(unittest.TestCase):
 
     def test_spec_collects_manifest_workers_and_model_docs_as_loose_files(self):
         # Execute only the two data-list expressions, not PyInstaller or workers.
-        tree=ast.parse((ROOT/'LyriaQt.spec').read_text(encoding='utf-8'))
+        tree=ast.parse((ROOT/'packaging/LyriaQt.spec').read_text(encoding='utf-8'))
         nodes=[]
         for node in tree.body:
             if isinstance(node,ast.AugAssign) and isinstance(node.target,ast.Name) and node.target.id=='datas':
@@ -179,20 +180,20 @@ class PortableResourceGuardTests(unittest.TestCase):
             audit.safe_file(self.source,name)
 
     def test_heavy_model_runtime_is_not_a_gui_dependency(self):
-        tree=ast.parse((ROOT/'LyriaQt.spec').read_text(encoding='utf-8'))
+        tree=ast.parse((ROOT/'packaging/LyriaQt.spec').read_text(encoding='utf-8'))
         analysis=next(n for n in ast.walk(tree) if isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='Analysis')
         excluded=ast.literal_eval(next(k.value for k in analysis.keywords if k.arg=='excludes'))
         self.assertTrue({'torch','transformers','librosa','nagisa','soynlp','pykakasi'} <= set(excluded))
-        gui=set(self.spec['runtime_distributions']) | set(audit.pins_from_file(ROOT/'requirements.qt.txt'))
+        gui=set(self.spec['runtime_distributions']) | set(audit.pins_from_file(ROOT/'packaging/requirements.qt.txt'))
         self.assertFalse(gui & {'torch','transformers','onnxruntime-gpu','onnxruntime','audio-separator'})
         self.assertEqual(set(self.spec['internal_files']),MODEL_WORKERS)
         self.assertFalse(any(p.endswith(('.safetensors','.pt','.pth')) for p in self.spec['required_resources']))
 
     def test_separate_requirements_keep_verified_pins_and_ort_mutually_exclusive(self):
-        pins=audit.pins_from_file(ROOT/'requirements.local-alignment.txt')
+        pins=audit.pins_from_file(ROOT/'packaging/requirements.local-alignment.txt')
         self.assertEqual(pins,{'transformers':'5.22.2','numpy':'2.2.6','librosa':'0.11.0',
                                'jinja2':'3.1.6','nagisa':'0.3.1','soynlp':'0.0.493','pykakasi':'2.3.0'})
-        text=(ROOT/'requirements.local-alignment.txt').read_text(encoding='utf-8')
+        text=(ROOT/'packaging/requirements.local-alignment.txt').read_text(encoding='utf-8')
         for pin in ('torch==2.9.1','onnxruntime-gpu==1.23.2','onnxruntime==1.23.2'):
             self.assertIn(pin,text)
         self.assertNotIn('onnxruntime',pins);self.assertNotIn('onnxruntime-gpu',pins)
@@ -480,8 +481,8 @@ class PortableResourceGuardTests(unittest.TestCase):
         self.assertTrue(any(e['component'] == 'ffmpeg_subtitles' for e in report['errors']))
 
     def test_spec_and_build_use_the_same_failclosed_contract(self):
-        spec = (ROOT / 'LyriaQt.spec').read_text(encoding='utf-8')
-        build = (ROOT / 'build_windows_qt.ps1').read_text(encoding='utf-8')
+        spec = (ROOT / 'packaging/LyriaQt.spec').read_text(encoding='utf-8')
+        build = (ROOT / 'packaging/build_windows_qt.ps1').read_text(encoding='utf-8')
         self.assertIn('require_source_resources(root)', spec)
         self.assertIn('collect_distribution_data(root)', spec)
         self.assertIn("hookspath=[str(root / 'tools' / 'pyinstaller_hooks')]", spec)
@@ -558,7 +559,7 @@ class QtCollectionHookTests(unittest.TestCase):
             for module in re.findall(r'^\s*import\s+(Qt[A-Za-z0-9_.]+)', path.read_text(encoding='utf-8'), re.M):
                 self.assertIn(module.replace('.', '/'), qml_policy.ALLOWED_MODULE_DIRS)
         self.assertIn("QQuickStyle.setStyle('Basic')", (ROOT / 'app_qt.py').read_text(encoding='utf-8'))
-        pins = audit.pins_from_file(ROOT / 'requirements.qt.txt')
+        pins = audit.pins_from_file(ROOT / 'packaging/requirements.qt.txt')
         self.assertEqual(pins['pyside6'], '6.8.3')
         self.assertEqual(pins['pyinstaller'], '6.16.0')
 

@@ -12,7 +12,7 @@
 
 - 独立打包入口为 `build_windows_qt.ps1` 与 `LyriaQt.spec`，需要预先在本地准备完整的 `resources/` 运行资源目录（包含 FFmpeg、RapidOCR 模型、Tesseract 及对应驱动/加速组件）。
 - 请勿将个人字幕工程、音视频素材、API 密钥、本机缓存或临时输出放入打包输入目录。
-- 第三方运行时组件与对应源码归属约束见 [THIRD_PARTY.md](THIRD_PARTY.md) 与 [二进制组件与源码对照清单](docs/THIRD_PARTY_BINARIES.md)。
+- 第三方运行时组件与对应源码归属约束见 [THIRD_PARTY.md](THIRD_PARTY.md) 与 [二进制组件与源码对照清单](THIRD_PARTY_BINARIES.md)。
 
 ## 隔离测试与存储目录
 

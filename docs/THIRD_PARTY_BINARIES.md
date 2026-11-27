@@ -8,7 +8,7 @@
 
 | 组件 | 版本 | 许可证 | 对应源码 / 说明 |
 | :--- | :--- | :--- | :--- |
-| `Lyria STUDIO` (`Lyria.exe`) | `0.3.4`（`v0.3.4 测试版`） | `GPL-3.0` + 硬件运行时附加许可 | 完整源码见本仓库 `main` 分支 / 标签 `v0.3.4` 及随附 [GPL-3.0](../LICENSE)、[运行时附加许可](../ADDITIONAL_PERMISSION_RUNTIME.txt) |
+| `Lyria STUDIO` (`Lyria.exe`) | `0.3.4`（`v0.3.4 测试版`） | `GPL-3.0` + 硬件运行时附加许可 | 完整源码见本仓库 `main` 分支 / 标签 `v0.3.4` 及随附 [GPL-3.0](../LICENSE)、[运行时附加许可](../licenses/ADDITIONAL_PERMISSION_RUNTIME.txt) |
 
 ---
 
